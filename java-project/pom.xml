@@ -11,7 +11,6 @@
     <url>http://maven.apache.org</url>
 
     <properties>
-        <!-- https://maven.apache.org/general.html#encoding-warning -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -22,6 +21,12 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.5.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -37,7 +42,6 @@
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.2.0</version>
                 <executions>
-                    <!-- Attach the shade into the package phase -->
                     <execution>
                         <phase>package</phase>
                         <goals>
@@ -54,33 +58,6 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <!-- fat-jar -->
-            <!-- https://books.sonatype.com/mvnex-book/reference/customizing-sect-custom-packaged.html -->
-            <!--
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                    <archive>
-                        <manifest>
-                            <mainClass>com.mkyong.hashing.App</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>simple-command</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>attached</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            -->
         </plugins>
     </build>
 </project>
